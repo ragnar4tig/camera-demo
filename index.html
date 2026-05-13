@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera Demo</title>
+</head>
+<body>
+
+<h2>Camera Test (تجربة تعليمية)</h2>
+<p>اضغط الزر لتشغيل الكاميرا - لازم توافق بنفسك</p>
+
+<button onclick="startCamera()">تشغيل الكاميرا</button>
+
+<br><br>
+<video id="video" width="300" autoplay></video>
+
+<script>
+function startCamera() {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function(stream) {
+      document.getElementById('video').srcObject = stream;
+    })
+    .catch(function(err) {
+      alert("تم رفض الإذن أو حصل خطأ");
+    });
+}
+</script>
+
+</body>
+</html>
